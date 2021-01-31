@@ -1,5 +1,7 @@
 import config from '../config';
 import EventEmitter from 'eventemitter3';
+import gsap from 'gsap/gsap-core';
+import Animation from './custom/Animation';
 
 const EVENTS = {
   APP_READY: 'app_ready',
@@ -14,7 +16,9 @@ export default class Application extends EventEmitter {
     super();
 
     this.config = config;
-    this.data = { };
+    this.data = {
+      animation: new Animation()
+    };
 
     this.init();
   }
